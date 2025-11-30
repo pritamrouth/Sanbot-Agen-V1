@@ -3,12 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_gray">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_video_placeholder" />
+    android:background="@drawable/bg_light_gradient">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,8 +15,8 @@
             android:layout_height="56dp"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:paddingHorizontal="@dimen/spacing_medium"
-            android:background="@color/black_50"
+            android:paddingHorizontal="16dp"
+            android:background="@android:color/transparent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageButton
@@ -31,15 +26,15 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_back"
                 android:contentDescription="Back"
-                android:tint="@color/white" />
+                android:tint="#1A237E" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/title_tour_packages"
-                android:textSize="@dimen/text_h3"
-                android:textColor="@color/white"
+                android:text="Packages"
+                android:textSize="24sp"
+                android:textColor="#1A237E"
                 android:textStyle="bold"
                 android:gravity="center" />
 
@@ -50,15 +45,15 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_home"
                 android:contentDescription="Home"
-                android:tint="@color/white" />
+                android:tint="#1A237E" />
 
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/packagesRecyclerView"
+            android:id="@+id/packageRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:padding="@dimen/spacing_medium"
+            android:padding="16dp"
             android:clipToPadding="false"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintBottom_toBottomOf="parent" />
