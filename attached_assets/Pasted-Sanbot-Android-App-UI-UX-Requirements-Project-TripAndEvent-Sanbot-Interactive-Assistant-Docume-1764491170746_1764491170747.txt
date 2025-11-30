@@ -1,0 +1,87 @@
+Sanbot Android App - UI/UX
+Requirements
+Project: TripAndEvent Sanbot Interactive Assistant
+Document Version: 1.0
+Date: November 26, 2025
+1. Design Philosophy
+The Sanbot app UI must be clean, modern, and intuitive for customers of all ages and
+technical backgrounds. The interface should feel welcoming, professional, and easy to
+navigate without instructions.
+Core Principles:
+• Simplicity - Minimal clicks to complete any action
+• Clarity - Large, readable text and obvious buttons
+• Responsiveness - Instant feedback for all interactions
+• Accessibility - High contrast, large touch targets
+• Brand Consistency - Follow TripAndEvent brand guidelines
+2. Brand Guidelines
+Color Palette
+Primary Colors:
+• Brand Blue: #0066CC
+• Brand Orange: #FF6B35
+Secondary Colors:
+• Dark Gray: #2C3E50
+• Light Gray: #ECF0F1
+• White: #FFFFFF
+Accent Colors:
+• Success Green: #27AE60
+• Warning Yellow: #F39C12
+• Error Red: #E74C3C
+Typography
+Primary Font: Poppins (Google Fonts)
+• Headings: Poppins Bold
+• Body: Poppins Regular
+• Buttons: Poppins SemiBold
+Font Sizes:
+• H1: 32sp
+• H2: 24sp
+• H3: 20sp
+• Body: 16sp
+• Caption: 14sp
+• Button: 18sp
+Logo
+Company logo will be provided in the following formats:
+• PNG (transparent background)
+• SVG (vector format)
+• Horizontal and vertical variations
+3. Screen Specifications
+Screen Resolution
+• Target: 1920x1080 (Full HD)
+• Orientation: Portrait only
+• Safe Area: Account for Sanbot hardware bezels
+Layout Grid
+• Columns: 12-column grid
+• Gutter: 16dp
+• Margin: 24dp
+4. Screen-by-Screen Requirements
+4.1 Welcome Screen (Idle Mode)
+Purpose: Attract customers and provide initial greeting.
+Layout:
+Plain Text
+┌─────────────────────────────────────┐
+│ │
+│ [Company Logo] │
+│ │
+│ Welcome to TripAndEvent │
+│ Your trusted travel partner │
+│ │
+│ │
+│ [Large "Start" Button] │
+│ │
+│ │
+│ [Background: Looping Video] │
+│ │
+└─────────────────────────────────────┘
+Elements:
+• Company logo (centered, 200x80dp)
+• Welcome text (H1, centered, white color)
+• Subtitle (H3, centered, white color with 70% opacity)
+• Start button (280x80dp, rounded corners 16dp, brand blue)
+• Background video (full screen, looping, subtle motion)
+Interactions:
+• Tap anywhere on screen → Navigate to Main Menu
+• Auto-play background video on loop
+• No timeout (stays on welcome screen until interaction)
+Animations:
+• Logo fade-in on load (500ms)
+• Text slide-up animation (300ms delay)
+• Button pulse animation (subtle, continuous)
