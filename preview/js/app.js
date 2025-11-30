@@ -1,81 +1,100 @@
-function navigateToMenu() {
-    const welcomeScreen = document.getElementById('welcomeScreen');
-    const menuScreen = document.getElementById('menuScreen');
-    
-    welcomeScreen.classList.remove('active');
-    menuScreen.classList.add('active');
-    
-    animateMenuEntry();
-}
+let isListening = false;
 
-function navigateToWelcome() {
-    const welcomeScreen = document.getElementById('welcomeScreen');
-    const menuScreen = document.getElementById('menuScreen');
-    
-    menuScreen.classList.remove('active');
-    welcomeScreen.classList.add('active');
-    
-    resetWelcomeAnimations();
-}
-
-function animateMenuEntry() {
-    const menuTitle = document.getElementById('menuTitle');
-    const cards = document.querySelectorAll('.menu-card');
-    
-    menuTitle.style.opacity = '0';
-    menuTitle.style.transform = 'translateY(20px)';
-    
-    cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(50px)';
+function showScreen(screenId) {
+    document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.remove('active');
     });
-    
-    setTimeout(() => {
-        menuTitle.style.transition = 'all 0.4s ease';
-        menuTitle.style.opacity = '1';
-        menuTitle.style.transform = 'translateY(0)';
-    }, 100);
-    
-    cards.forEach((card, index) => {
-        setTimeout(() => {
-            card.style.transition = 'all 0.4s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, 200 + (index * 100));
-    });
-}
-
-function resetWelcomeAnimations() {
-    const logo = document.getElementById('logo');
-    const title = document.getElementById('welcomeTitle');
-    const subtitle = document.getElementById('welcomeSubtitle');
-    const button = document.getElementById('startButton');
-    
-    logo.style.animation = 'none';
-    title.style.animation = 'none';
-    subtitle.style.animation = 'none';
-    button.style.animation = 'none';
-    
-    void logo.offsetWidth;
-    
-    logo.style.animation = 'fadeIn 0.5s ease forwards';
-    title.style.animation = 'slideUp 0.4s ease 0.3s forwards';
-    subtitle.style.animation = 'slideUp 0.4s ease 0.5s forwards';
-    button.style.animation = 'scaleIn 0.4s ease 0.7s forwards, pulse 2s ease-in-out 1.1s infinite';
+    document.getElementById(screenId).classList.add('active');
 }
 
 function showToast(message) {
     const toast = document.getElementById('toast');
-    toast.textContent = message + ' - Coming Soon';
+    toast.textContent = message;
     toast.classList.add('show');
-    
     setTimeout(() => {
         toast.classList.remove('show');
     }, 2000);
 }
 
+function toggleVoice() {
+    const micButton = document.getElementById('micButton');
+    const voiceStatus = document.getElementById('voiceStatus');
+    const waveform = document.getElementById('waveform');
+    const instructionText = document.getElementById('instructionText');
+    
+    isListening = !isListening;
+    
+    if (isListening) {
+        micButton.classList.add('active');
+        voiceStatus.textContent = 'Listening...';
+        waveform.classList.add('active');
+        instructionText.textContent = 'Tap to stop';
+        
+        setTimeout(() => {
+            if (isListening) {
+                stopListeningAndRespond();
+            }
+        }, 3000);
+    } else {
+        stopListening();
+    }
+}
+
+function stopListening() {
+    const micButton = document.getElementById('micButton');
+    const voiceStatus = document.getElementById('voiceStatus');
+    const waveform = document.getElementById('waveform');
+    const instructionText = document.getElementById('instructionText');
+    
+    isListening = false;
+    micButton.classList.remove('active');
+    voiceStatus.textContent = 'Tap to speak';
+    waveform.classList.remove('active');
+    instructionText.textContent = 'Tap to speak';
+}
+
+function stopListeningAndRespond() {
+    stopListening();
+    
+    const conversation = document.getElementById('conversation');
+    const voiceStatus = document.getElementById('voiceStatus');
+    
+    voiceStatus.textContent = 'Processing...';
+    
+    const userMessage = document.createElement('div');
+    userMessage.className = 'message user';
+    userMessage.innerHTML = '<div class="message-role">You</div>Show me Dubai packages';
+    conversation.appendChild(userMessage);
+    
+    setTimeout(() => {
+        voiceStatus.textContent = 'Speaking...';
+        
+        const agentMessage = document.createElement('div');
+        agentMessage.className = 'message agent';
+        agentMessage.innerHTML = '<div class="message-role">Agent</div>Here are our top Dubai packages! We have the Dubai Desert Safari for AED 299, Burj Khalifa Tour for AED 199, and Dubai Marina Cruise for AED 149.';
+        conversation.appendChild(agentMessage);
+        conversation.scrollTop = conversation.scrollHeight;
+        
+        setTimeout(() => {
+            voiceStatus.textContent = 'Tap to speak';
+        }, 2000);
+    }, 1500);
+}
+
+function submitForm() {
+    const nameInput = document.getElementById('nameInput');
+    const phoneInput = document.getElementById('phoneInput');
+    
+    if (!nameInput.value || !phoneInput.value) {
+        showToast('Please fill in required fields');
+        return;
+    }
+    
+    showScreen('thankyouScreen');
+}
+
 document.getElementById('welcomeScreen').addEventListener('click', function(e) {
-    if (e.target.id !== 'startButton') {
-        navigateToMenu();
+    if (!e.target.classList.contains('start-button')) {
+        showScreen('menuScreen');
     }
 });

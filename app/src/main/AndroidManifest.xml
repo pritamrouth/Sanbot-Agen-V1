@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -9,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SanbotApp">
 
+        <!-- Welcome Screen (Launcher) -->
         <activity
             android:name=".ui.welcome.WelcomeActivity"
             android:exported="true"
@@ -20,10 +24,69 @@
             </intent-filter>
         </activity>
 
+        <!-- Main Menu -->
         <activity
             android:name=".ui.menu.MainMenuActivity"
             android:exported="false"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.SanbotApp.Fullscreen" />
+
+        <!-- Voice Interaction -->
+        <activity
+            android:name=".ui.voice.VoiceInteractionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SanbotApp.Fullscreen" />
+
+        <!-- Package List -->
+        <activity
+            android:name=".ui.packages.PackageListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SanbotApp.Fullscreen" />
+
+        <!-- Package Details -->
+        <activity
+            android:name=".ui.packages.PackageDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SanbotApp.Fullscreen" />
+
+        <!-- Contact Form -->
+        <activity
+            android:name=".ui.contact.ContactFormActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.SanbotApp.Fullscreen" />
+
+        <!-- Thank You -->
+        <activity
+            android:name=".ui.contact.ThankYouActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SanbotApp.Fullscreen" />
+
+        <!-- Media Gallery -->
+        <activity
+            android:name=".ui.media.MediaGalleryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SanbotApp.Fullscreen" />
+
+        <!-- Video Player -->
+        <activity
+            android:name=".ui.media.VideoPlayerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SanbotApp.Fullscreen" />
+
+        <!-- Settings -->
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.SanbotApp.Fullscreen" />
 
     </application>

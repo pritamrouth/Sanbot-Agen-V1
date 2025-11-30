@@ -7,25 +7,21 @@
     android:background="@color/dark_gray"
     tools:context=".ui.menu.MainMenuActivity">
 
-    <!-- Background Gradient -->
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_video_placeholder" />
 
-    <!-- Gradient Overlay -->
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_gradient_overlay" />
 
-    <!-- Content -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/grid_margin">
 
-        <!-- Header Logo -->
         <ImageView
             android:id="@+id/headerLogo"
             android:layout_width="120dp"
@@ -36,7 +32,18 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="@dimen/spacing_medium" />
 
-        <!-- Main Title -->
+        <ImageButton
+            android:id="@+id/settingsButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_settings"
+            android:contentDescription="Settings"
+            android:tint="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/spacing_medium" />
+
         <TextView
             android:id="@+id/menuTitle"
             android:layout_width="wrap_content"
@@ -51,127 +58,198 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="@dimen/spacing_xlarge" />
 
-        <!-- Menu Grid -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/menuGrid"
+        <LinearLayout
+            android:id="@+id/menuCardsContainer"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:orientation="vertical"
+            android:gravity="center"
             app:layout_constraintTop_toBottomOf="@id/menuTitle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="@dimen/spacing_xlarge"
-            android:layout_marginBottom="@dimen/spacing_xlarge">
+            android:layout_marginTop="@dimen/spacing_large">
 
-            <!-- Tours Button -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardTours"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:id="@+id/cardTalkToMe"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="@dimen/spacing_medium"
                 app:cardBackgroundColor="@color/brand_blue"
                 app:cardCornerRadius="@dimen/button_corner_radius"
-                app:cardElevation="8dp"
-                android:layout_margin="@dimen/spacing_small"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/cardInfo"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/cardEvents"
-                app:layout_constraintHeight_percent="0.45"
-                app:layout_constraintWidth_percent="0.45">
+                app:cardElevation="4dp"
+                app:rippleColor="@color/white_70">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/menu_tours"
-                    android:textSize="@dimen/text_h2"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/spacing_large">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:text="🎤"
+                        android:textSize="24sp"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/menu_talk_to_me"
+                        android:textSize="@dimen/text_h3"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/spacing_medium" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:tint="@color/white"
+                        android:contentDescription="Go" />
+
+                </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Events Button -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardEvents"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:id="@+id/cardBrowsePackages"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="@dimen/spacing_medium"
                 app:cardBackgroundColor="@color/brand_orange"
                 app:cardCornerRadius="@dimen/button_corner_radius"
-                app:cardElevation="8dp"
-                android:layout_margin="@dimen/spacing_small"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/cardHelp"
-                app:layout_constraintStart_toEndOf="@id/cardTours"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_percent="0.45"
-                app:layout_constraintWidth_percent="0.45">
+                app:cardElevation="4dp"
+                app:rippleColor="@color/white_70">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/menu_events"
-                    android:textSize="@dimen/text_h2"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/spacing_large">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:text="📦"
+                        android:textSize="24sp"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/menu_browse_packages"
+                        android:textSize="@dimen/text_h3"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/spacing_medium" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:tint="@color/white"
+                        android:contentDescription="Go" />
+
+                </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Information Button -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardInfo"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:id="@+id/cardWatchVideos"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="@dimen/spacing_medium"
                 app:cardBackgroundColor="@color/success_green"
                 app:cardCornerRadius="@dimen/button_corner_radius"
-                app:cardElevation="8dp"
-                android:layout_margin="@dimen/spacing_small"
-                app:layout_constraintTop_toBottomOf="@id/cardTours"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/cardHelp"
-                app:layout_constraintHeight_percent="0.45"
-                app:layout_constraintWidth_percent="0.45">
+                app:cardElevation="4dp"
+                app:rippleColor="@color/white_70">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/menu_info"
-                    android:textSize="@dimen/text_h2"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/spacing_large">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:text="🎬"
+                        android:textSize="24sp"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/menu_watch_videos"
+                        android:textSize="@dimen/text_h3"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/spacing_medium" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:tint="@color/white"
+                        android:contentDescription="Go" />
+
+                </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Help Button -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardHelp"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:id="@+id/cardContactUs"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
                 app:cardBackgroundColor="@color/warning_yellow"
                 app:cardCornerRadius="@dimen/button_corner_radius"
-                app:cardElevation="8dp"
-                android:layout_margin="@dimen/spacing_small"
-                app:layout_constraintTop_toBottomOf="@id/cardEvents"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/cardInfo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_percent="0.45"
-                app:layout_constraintWidth_percent="0.45">
+                app:cardElevation="4dp"
+                app:rippleColor="@color/white_70">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/menu_help"
-                    android:textSize="@dimen/text_h2"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/spacing_large">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:text="📞"
+                        android:textSize="24sp"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/menu_contact_us"
+                        android:textSize="@dimen/text_h3"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/spacing_medium" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:tint="@color/white"
+                        android:contentDescription="Go" />
+
+                </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

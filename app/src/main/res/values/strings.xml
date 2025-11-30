@@ -8,9 +8,86 @@
     <string name="btn_start">Start</string>
     
     <!-- Main Menu -->
-    <string name="main_menu_title">How can we help you today?</string>
+    <string name="main_menu_title">How can I help you today?</string>
+    <string name="menu_talk_to_me">Talk to Me</string>
+    <string name="menu_browse_packages">Browse Packages</string>
+    <string name="menu_watch_videos">Watch Videos</string>
+    <string name="menu_contact_us">Contact Us</string>
+    
+    <!-- Old Menu Items (for compatibility) -->
     <string name="menu_tours">Tours</string>
     <string name="menu_events">Events</string>
     <string name="menu_info">Information</string>
     <string name="menu_help">Help</string>
+    
+    <!-- Screen Titles -->
+    <string name="title_tour_packages">Tour Packages</string>
+    <string name="title_contact_info">Contact Information</string>
+    <string name="title_media_gallery">Media Gallery</string>
+    <string name="title_voice_interaction">Voice Assistant</string>
+    <string name="title_settings">Settings</string>
+    
+    <!-- Package Details -->
+    <string name="btn_view_details">View Details</string>
+    <string name="btn_book_now">Book Now</string>
+    <string name="btn_get_quote">Get Quote</string>
+    <string name="section_highlights">Highlights</string>
+    <string name="section_itinerary">Itinerary</string>
+    <string name="section_inclusions">Inclusions</string>
+    <string name="section_exclusions">Exclusions</string>
+    
+    <!-- Contact Form -->
+    <string name="contact_form_title">Let\'s get in touch!</string>
+    <string name="hint_name">Your Name *</string>
+    <string name="hint_phone">Phone Number *</string>
+    <string name="hint_email">Email (Optional)</string>
+    <string name="hint_notes">Additional Notes</string>
+    <string name="label_interested_packages">Interested Packages</string>
+    <string name="btn_submit">Submit</string>
+    <string name="submitting">Submitting...</string>
+    <string name="error_name_required">Name is required (min 2 characters)</string>
+    <string name="error_phone_required">Valid phone number is required</string>
+    <string name="error_email_invalid">Please enter a valid email</string>
+    
+    <!-- Thank You Screen -->
+    <string name="thank_you_title">Thank You!</string>
+    <string name="thank_you_message">Your request has been submitted.\nOur team will contact you soon.</string>
+    <string name="btn_send_sms">Send Details via SMS</string>
+    <string name="btn_send_whatsapp">Send Details via WhatsApp</string>
+    <string name="btn_email_quote">Email Quote</string>
+    <string name="btn_back_to_home">Back to Home</string>
+    <string name="msg_sms_sent">Details sent via SMS!</string>
+    <string name="msg_whatsapp_sent">Details sent via WhatsApp!</string>
+    <string name="msg_email_sent">Quote sent via Email!</string>
+    
+    <!-- Media Gallery -->
+    <string name="section_videos">Videos</string>
+    <string name="section_photos">Photos</string>
+    
+    <!-- Voice Interaction -->
+    <string name="status_idle">Tap to speak</string>
+    <string name="status_listening">Listening...</string>
+    <string name="status_processing">Processing...</string>
+    <string name="status_speaking">Speaking...</string>
+    <string name="instruction_tap_speak">Tap to speak</string>
+    <string name="instruction_tap_stop">Tap to stop</string>
+    
+    <!-- Settings -->
+    <string name="section_api_config">API Configuration</string>
+    <string name="section_diagnostics">Diagnostics</string>
+    <string name="hint_api_url">API Base URL</string>
+    <string name="hint_branch_location">Branch Location</string>
+    <string name="btn_test_connection">Test Connection</string>
+    <string name="btn_view_logs">View Logs</string>
+    <string name="btn_clear_cache">Clear Cache</string>
+    <string name="btn_logout">Logout</string>
+    <string name="app_version">App Version: 1.0.0</string>
+    <string name="dialog_enter_pin">Enter PIN</string>
+    <string name="hint_enter_pin">Enter 4-digit PIN</string>
+    <string name="btn_unlock">Unlock</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="error_wrong_pin">Incorrect PIN</string>
+    <string name="msg_connection_success">Connection successful!</string>
+    <string name="msg_logs_coming_soon">Logs viewer coming soon</string>
+    <string name="msg_cache_cleared">Cache cleared successfully</string>
 </resources>

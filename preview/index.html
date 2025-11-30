@@ -10,7 +10,6 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Device Frame -->
         <div class="device-frame">
             <div class="device-screen" id="appScreen">
                 <!-- Welcome Screen -->
@@ -20,21 +19,18 @@
                     <div class="content">
                         <div class="logo" id="logo">
                             <svg viewBox="0 0 200 80" class="logo-svg">
-                                <!-- Globe Icon -->
                                 <circle cx="30" cy="40" r="25" fill="#FF6B35"/>
                                 <ellipse cx="30" cy="40" rx="15" ry="25" fill="none" stroke="#fff" stroke-width="2"/>
                                 <line x1="5" y1="40" x2="55" y2="40" stroke="#fff" stroke-width="2"/>
                                 <line x1="30" y1="15" x2="30" y2="65" stroke="#fff" stroke-width="2"/>
-                                <!-- Airplane -->
                                 <path d="M42,28 L52,38 L48,42 L38,32 L35,45 L30,40 L33,27 L42,28 Z" fill="#0066CC"/>
-                                <!-- Text -->
                                 <text x="70" y="45" fill="#fff" font-family="Poppins" font-weight="700" font-size="18">TripAndEvent</text>
                                 <line x1="70" y1="55" x2="180" y2="55" stroke="#0066CC" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h1 class="welcome-title" id="welcomeTitle">Welcome to TripAndEvent</h1>
-                        <p class="welcome-subtitle" id="welcomeSubtitle">Your trusted travel partner</p>
-                        <button class="start-button" id="startButton" onclick="navigateToMenu()">Start</button>
+                        <h1 class="welcome-title">Welcome to TripAndEvent</h1>
+                        <p class="welcome-subtitle">Your trusted travel partner</p>
+                        <button class="start-button" onclick="showScreen('menuScreen')">Start</button>
                     </div>
                 </div>
 
@@ -42,68 +38,294 @@
                 <div class="screen menu-screen" id="menuScreen">
                     <div class="video-background"></div>
                     <div class="gradient-overlay"></div>
-                    <div class="content">
+                    <div class="content menu-content">
                         <div class="header">
                             <svg viewBox="0 0 200 80" class="header-logo">
                                 <circle cx="30" cy="40" r="25" fill="#FF6B35"/>
-                                <ellipse cx="30" cy="40" rx="15" ry="25" fill="none" stroke="#fff" stroke-width="2"/>
-                                <line x1="5" y1="40" x2="55" y2="40" stroke="#fff" stroke-width="2"/>
-                                <line x1="30" y1="15" x2="30" y2="65" stroke="#fff" stroke-width="2"/>
                                 <text x="70" y="45" fill="#fff" font-family="Poppins" font-weight="700" font-size="18">TripAndEvent</text>
-                                <line x1="70" y1="55" x2="180" y2="55" stroke="#0066CC" stroke-width="2"/>
                             </svg>
+                            <button class="icon-btn" onclick="showScreen('settingsScreen')">⚙️</button>
                         </div>
-                        <h2 class="menu-title" id="menuTitle">How can we help you today?</h2>
-                        <div class="menu-grid">
-                            <div class="menu-card blue" onclick="showToast('Tours')">
-                                <span>Tours</span>
+                        <h2 class="menu-title">How can I help you today?</h2>
+                        <div class="action-cards">
+                            <div class="action-card blue" onclick="showScreen('voiceScreen')">
+                                <span class="card-icon">🎤</span>
+                                <span class="card-text">Talk to Me</span>
+                                <span class="card-arrow">›</span>
                             </div>
-                            <div class="menu-card orange" onclick="showToast('Events')">
-                                <span>Events</span>
+                            <div class="action-card orange" onclick="showScreen('packagesScreen')">
+                                <span class="card-icon">📦</span>
+                                <span class="card-text">Browse Packages</span>
+                                <span class="card-arrow">›</span>
                             </div>
-                            <div class="menu-card green" onclick="showToast('Information')">
-                                <span>Information</span>
+                            <div class="action-card green" onclick="showScreen('mediaScreen')">
+                                <span class="card-icon">🎬</span>
+                                <span class="card-text">Watch Videos</span>
+                                <span class="card-arrow">›</span>
                             </div>
-                            <div class="menu-card yellow" onclick="showToast('Help')">
-                                <span>Help</span>
+                            <div class="action-card yellow" onclick="showScreen('contactScreen')">
+                                <span class="card-icon">📞</span>
+                                <span class="card-text">Contact Us</span>
+                                <span class="card-arrow">›</span>
                             </div>
                         </div>
-                        <button class="back-button" onclick="navigateToWelcome()">Back</button>
+                    </div>
+                </div>
+
+                <!-- Voice Interaction Screen -->
+                <div class="screen voice-screen" id="voiceScreen">
+                    <div class="video-background"></div>
+                    <div class="gradient-overlay"></div>
+                    <div class="toolbar">
+                        <button class="icon-btn" onclick="showScreen('menuScreen')">←</button>
+                        <span>Voice Assistant</span>
+                        <button class="icon-btn" onclick="showScreen('welcomeScreen')">🏠</button>
+                    </div>
+                    <div class="content voice-content">
+                        <div class="status-card">
+                            <p class="status-text" id="voiceStatus">Tap to speak</p>
+                            <div class="waveform" id="waveform"></div>
+                        </div>
+                        <div class="conversation" id="conversation"></div>
+                        <div class="mic-container">
+                            <button class="mic-button" id="micButton" onclick="toggleVoice()">🎤</button>
+                            <p class="instruction-text" id="instructionText">Tap to speak</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Packages Screen -->
+                <div class="screen packages-screen" id="packagesScreen">
+                    <div class="toolbar">
+                        <button class="icon-btn" onclick="showScreen('menuScreen')">←</button>
+                        <span>Tour Packages</span>
+                        <button class="icon-btn" onclick="showScreen('welcomeScreen')">🏠</button>
+                    </div>
+                    <div class="content packages-content">
+                        <div class="package-card" onclick="showScreen('packageDetailScreen')">
+                            <div class="package-image"></div>
+                            <div class="package-info">
+                                <h3>Dubai Desert Safari</h3>
+                                <p class="price">AED 299 • 6 hours</p>
+                                <p class="rating">⭐ 4.8 (234 reviews)</p>
+                            </div>
+                        </div>
+                        <div class="package-card" onclick="showScreen('packageDetailScreen')">
+                            <div class="package-image" style="background: linear-gradient(135deg, #0066CC, #00CC66);"></div>
+                            <div class="package-info">
+                                <h3>Burj Khalifa Tour</h3>
+                                <p class="price">AED 199 • 3 hours</p>
+                                <p class="rating">⭐ 4.9 (456 reviews)</p>
+                            </div>
+                        </div>
+                        <div class="package-card" onclick="showScreen('packageDetailScreen')">
+                            <div class="package-image" style="background: linear-gradient(135deg, #FF6B35, #FFD700);"></div>
+                            <div class="package-info">
+                                <h3>Abu Dhabi City Tour</h3>
+                                <p class="price">AED 350 • Full day</p>
+                                <p class="rating">⭐ 4.7 (189 reviews)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package Detail Screen -->
+                <div class="screen package-detail-screen" id="packageDetailScreen">
+                    <div class="toolbar">
+                        <button class="icon-btn" onclick="showScreen('packagesScreen')">←</button>
+                        <span></span>
+                        <button class="icon-btn" onclick="showScreen('welcomeScreen')">🏠</button>
+                    </div>
+                    <div class="content detail-content">
+                        <div class="hero-image"></div>
+                        <div class="detail-info">
+                            <h2>Dubai Desert Safari</h2>
+                            <p class="price-large">AED 299 per person</p>
+                            <p class="rating">⭐ 4.8 (234 reviews)</p>
+                            <div class="section">
+                                <h3>▼ Highlights</h3>
+                                <ul>
+                                    <li>Thrilling dune bashing</li>
+                                    <li>Camel ride experience</li>
+                                    <li>Traditional BBQ dinner</li>
+                                </ul>
+                            </div>
+                            <div class="section">
+                                <h3>▼ Itinerary</h3>
+                                <ul>
+                                    <li>15:00 - Hotel pickup</li>
+                                    <li>16:00 - Dune bashing</li>
+                                    <li>19:00 - BBQ dinner</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-primary" onclick="showScreen('contactScreen')">Book Now</button>
+                            <button class="btn-secondary" onclick="showScreen('contactScreen')">Get Quote</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Screen -->
+                <div class="screen contact-screen" id="contactScreen">
+                    <div class="toolbar">
+                        <button class="icon-btn" onclick="showScreen('menuScreen')">←</button>
+                        <span>Contact Information</span>
+                        <button class="icon-btn" onclick="showScreen('welcomeScreen')">🏠</button>
+                    </div>
+                    <div class="content form-content">
+                        <h2>Let's get in touch!</h2>
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" placeholder="Enter your name" id="nameInput">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <div class="phone-input">
+                                <span class="country-code">+971</span>
+                                <input type="tel" placeholder="Enter phone number" id="phoneInput">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email (Optional)</label>
+                            <input type="email" placeholder="Enter email" id="emailInput">
+                        </div>
+                        <div class="form-group">
+                            <label>Additional Notes</label>
+                            <textarea placeholder="Any special requirements..."></textarea>
+                        </div>
+                        <button class="submit-btn" onclick="submitForm()">Submit</button>
+                    </div>
+                </div>
+
+                <!-- Thank You Screen -->
+                <div class="screen thankyou-screen" id="thankyouScreen">
+                    <div class="video-background"></div>
+                    <div class="gradient-overlay"></div>
+                    <div class="content thankyou-content">
+                        <div class="success-icon">✓</div>
+                        <h1>Thank You!</h1>
+                        <p>Your request has been submitted.<br>Our team will contact you soon.</p>
+                        <div class="share-buttons">
+                            <button class="share-btn sms" onclick="showToast('SMS sent!')">📱 Send Details via SMS</button>
+                            <button class="share-btn whatsapp" onclick="showToast('WhatsApp sent!')">💬 Send via WhatsApp</button>
+                            <button class="share-btn email" onclick="showToast('Email sent!')">📧 Email Quote</button>
+                        </div>
+                        <button class="text-btn" onclick="showScreen('welcomeScreen')">Back to Home</button>
+                    </div>
+                </div>
+
+                <!-- Media Gallery Screen -->
+                <div class="screen media-screen" id="mediaScreen">
+                    <div class="video-background"></div>
+                    <div class="toolbar">
+                        <button class="icon-btn" onclick="showScreen('menuScreen')">←</button>
+                        <span>Media Gallery</span>
+                        <button class="icon-btn" onclick="showScreen('welcomeScreen')">🏠</button>
+                    </div>
+                    <div class="content media-content">
+                        <h3>Videos</h3>
+                        <div class="video-card" onclick="showScreen('videoPlayerScreen')">
+                            <div class="video-thumb"><span class="play-icon">▶</span></div>
+                            <div class="video-info">
+                                <p>Dubai Highlights</p>
+                                <span>2:30</span>
+                            </div>
+                        </div>
+                        <div class="video-card" onclick="showScreen('videoPlayerScreen')">
+                            <div class="video-thumb" style="background: linear-gradient(135deg, #FF6B35, #FFD700);"><span class="play-icon">▶</span></div>
+                            <div class="video-info">
+                                <p>Desert Safari Experience</p>
+                                <span>3:15</span>
+                            </div>
+                        </div>
+                        <h3>Photos</h3>
+                        <div class="image-grid">
+                            <div class="image-thumb"></div>
+                            <div class="image-thumb" style="background: linear-gradient(135deg, #0066CC, #00CC66);"></div>
+                            <div class="image-thumb" style="background: linear-gradient(135deg, #FF6B35, #FFD700);"></div>
+                            <div class="image-thumb" style="background: linear-gradient(135deg, #27AE60, #0066CC);"></div>
+                            <div class="image-thumb" style="background: linear-gradient(135deg, #F39C12, #E74C3C);"></div>
+                            <div class="image-thumb" style="background: linear-gradient(135deg, #9B59B6, #3498DB);"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Player Screen -->
+                <div class="screen video-player-screen" id="videoPlayerScreen">
+                    <div class="video-player">
+                        <div class="video-content">
+                            <div class="play-icon-large">▶</div>
+                        </div>
+                        <button class="close-btn" onclick="showScreen('mediaScreen')">✕</button>
+                        <div class="video-controls">
+                            <button>⏮</button>
+                            <button>▶</button>
+                            <button>⏭</button>
+                            <div class="progress-bar"><div class="progress"></div></div>
+                            <span>00:45 / 02:30</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Screen -->
+                <div class="screen settings-screen" id="settingsScreen">
+                    <div class="toolbar dark">
+                        <button class="icon-btn" onclick="showScreen('menuScreen')">←</button>
+                        <span>Settings</span>
+                        <span></span>
+                    </div>
+                    <div class="content settings-content">
+                        <h3>API Configuration</h3>
+                        <div class="form-group">
+                            <label>API Base URL</label>
+                            <input type="text" value="https://api.tripandevent.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Branch Location</label>
+                            <select>
+                                <option>Dubai Office</option>
+                                <option>Abu Dhabi Office</option>
+                                <option>Sharjah Office</option>
+                            </select>
+                        </div>
+                        <button class="settings-btn blue" onclick="showToast('Connection successful!')">Test Connection</button>
+                        
+                        <h3>Diagnostics</h3>
+                        <button class="settings-btn outline" onclick="showToast('Coming soon')">View Logs</button>
+                        <button class="settings-btn outline" onclick="showToast('Cache cleared!')">Clear Cache</button>
+                        
+                        <p class="version">App Version: 1.0.0</p>
+                        <button class="settings-btn red" onclick="showScreen('welcomeScreen')">Logout</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Toast Notification -->
         <div class="toast" id="toast"></div>
 
-        <!-- Project Info -->
         <div class="project-info">
             <h2>TripAndEvent Sanbot App</h2>
-            <p>Native Android Kotlin Application Preview</p>
-            <div class="info-section">
-                <h3>Technology Stack</h3>
-                <ul>
-                    <li>Kotlin 1.9+</li>
-                    <li>Android SDK (API 26+)</li>
-                    <li>Material Design 3</li>
-                    <li>ExoPlayer for Video</li>
-                    <li>Jetpack ConstraintLayout</li>
-                </ul>
-            </div>
-            <div class="info-section">
-                <h3>Design Specs</h3>
-                <ul>
-                    <li>Resolution: 1920x1080 (Portrait)</li>
-                    <li>Font: Poppins</li>
-                    <li>Primary: #0066CC (Blue)</li>
-                    <li>Secondary: #FF6B35 (Orange)</li>
-                </ul>
+            <p>Native Android Kotlin Application - All 10 Screens</p>
+            <div class="screen-list">
+                <h3>Screens Implemented</h3>
+                <ol>
+                    <li onclick="showScreen('welcomeScreen')">Welcome Screen</li>
+                    <li onclick="showScreen('menuScreen')">Main Menu</li>
+                    <li onclick="showScreen('voiceScreen')">Voice Interaction</li>
+                    <li onclick="showScreen('packagesScreen')">Package List</li>
+                    <li onclick="showScreen('packageDetailScreen')">Package Details</li>
+                    <li onclick="showScreen('contactScreen')">Contact Form</li>
+                    <li onclick="showScreen('thankyouScreen')">Thank You</li>
+                    <li onclick="showScreen('mediaScreen')">Media Gallery</li>
+                    <li onclick="showScreen('videoPlayerScreen')">Video Player</li>
+                    <li onclick="showScreen('settingsScreen')">Settings</li>
+                </ol>
             </div>
             <div class="info-section">
                 <h3>Build Instructions</h3>
                 <pre>./gradlew assembleDebug</pre>
-                <p>Deploy the APK to Sanbot device</p>
+                <p>Deploy APK to Sanbot device</p>
             </div>
         </div>
     </div>

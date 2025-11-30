@@ -1,20 +1,21 @@
 package com.tripandevent.sanbot.ui.menu
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
-import com.tripandevent.sanbot.R
 import com.tripandevent.sanbot.databinding.ActivityMainMenuBinding
+import com.tripandevent.sanbot.ui.base.BaseFullScreenActivity
+import com.tripandevent.sanbot.ui.contact.ContactFormActivity
+import com.tripandevent.sanbot.ui.media.MediaGalleryActivity
+import com.tripandevent.sanbot.ui.packages.PackageListActivity
+import com.tripandevent.sanbot.ui.settings.SettingsActivity
+import com.tripandevent.sanbot.ui.voice.VoiceInteractionActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class MainMenuActivity : AppCompatActivity() {
+class MainMenuActivity : BaseFullScreenActivity() {
 
     private lateinit var binding: ActivityMainMenuBinding
 
@@ -24,53 +25,48 @@ class MainMenuActivity : AppCompatActivity() {
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupFullscreenMode()
         setupClickListeners()
         startEntranceAnimations()
     }
 
-    private fun setupFullscreenMode() {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        WindowInsetsControllerCompat(window, binding.root).let { controller ->
-            controller.hide(WindowInsetsCompat.Type.systemBars())
-            controller.systemBarsBehavior =
-                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        }
-    }
-
     private fun setupClickListeners() {
-        binding.cardTours.setOnClickListener {
-            showToast("Tours - Coming Soon")
+        binding.cardTalkToMe.setOnClickListener {
+            startActivity(Intent(this, VoiceInteractionActivity::class.java))
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
-        binding.cardEvents.setOnClickListener {
-            showToast("Events - Coming Soon")
+        binding.cardBrowsePackages.setOnClickListener {
+            startActivity(Intent(this, PackageListActivity::class.java))
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
-        binding.cardInfo.setOnClickListener {
-            showToast("Information - Coming Soon")
+        binding.cardWatchVideos.setOnClickListener {
+            startActivity(Intent(this, MediaGalleryActivity::class.java))
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
-        binding.cardHelp.setOnClickListener {
-            showToast("Help - Coming Soon")
+        binding.cardContactUs.setOnClickListener {
+            startActivity(Intent(this, ContactFormActivity::class.java))
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
-    }
 
-    private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        binding.settingsButton.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        }
     }
 
     private fun startEntranceAnimations() {
         val cards = listOf(
-            binding.cardTours,
-            binding.cardEvents,
-            binding.cardInfo,
-            binding.cardHelp
+            binding.cardTalkToMe,
+            binding.cardBrowsePackages,
+            binding.cardWatchVideos,
+            binding.cardContactUs
         )
 
-        cards.forEachIndexed { index, card ->
+        cards.forEach { card ->
             card.alpha = 0f
-            card.translationY = 100f
+            card.translationX = 100f
         }
 
         binding.menuTitle.alpha = 0f
@@ -97,7 +93,7 @@ class MainMenuActivity : AppCompatActivity() {
                 delay(100L * index)
                 card.animate()
                     .alpha(1f)
-                    .translationY(0f)
+                    .translationX(0f)
                     .setDuration(400)
                     .setInterpolator(AccelerateDecelerateInterpolator())
                     .start()
@@ -108,6 +104,6 @@ class MainMenuActivity : AppCompatActivity() {
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         super.onBackPressed()
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        navigateToWelcome()
     }
 }
