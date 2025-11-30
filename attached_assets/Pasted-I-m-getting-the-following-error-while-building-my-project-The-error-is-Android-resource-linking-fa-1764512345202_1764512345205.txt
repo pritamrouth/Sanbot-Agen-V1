@@ -1,0 +1,16 @@
+I'm getting the following error while building my project. The error is: Android resource linking failedExecution failed for task ':app:processDebugResources'.
+> A failure occurred while executing com.android.build.gradle.internal.res.LinkApplicationAndroidResourcesTask$TaskAction
+   > Android resource linking failed
+     com.tripandevent.sanbot.app-mergeDebugResources-36:/layout/activity_contact_form.xml:120: error: 'emailAddress' is incompatible with attribute inputType (attr) flags [date=20, datetime=4, none=0, number=2, numberDecimal=8194, numberPassword=18, numberSigned=4098, phone=3, text=1, textAutoComplete=65537, textAutoCorrect=32769, textCapCharacters=4097, textCapSentences=16385, textCapWords=8193, textEmailAddress=33, textEmailSubject=49, textEnableTextConversionSuggestions=1048577, textFilter=177, textImeMultiLine=262145, textLongMessage=81, textMultiLine=131073, textNoSuggestions=524289, textPassword=129, textPersonName=97, textPhonetic=193, textPostalAddress=113, textShortMessage=65, textUri=17, textVisiblePassword=145, textWebEditText=161, textWebEmailAddress=209, textWebPassword=225, time=36].
+     error: failed linking file resources.
+
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+...
+Caused by: com.android.builder.internal.aapt.v2.Aapt2Exception: Android resource linking failed
+com.tripandevent.sanbot.app-mergeDebugResources-36:/layout/activity_contact_form.xml:120: error: 'emailAddress' is incompatible with attribute inputType (attr) flags [date=20, datetime=4, none=0, number=2, numberDecimal=8194, numberPassword=18, numberSigned=4098, phone=3, text=1, textAutoComplete=65537, textAutoCorrect=32769, textCapCharacters=4097, textCapSentences=16385, textCapWords=8193, textEmailAddress=33, textEmailSubject=49, textEnableTextConversionSuggestions=1048577, textFilter=177, textImeMultiLine=262145, textLongMessage=81, textMultiLine=131073, textNoSuggestions=524289, textPassword=129, textPersonName=97, textPhonetic=193, textPostalAddress=113, textShortMessage=65, textUri=17, textVisiblePassword=145, textWebEditText=161, textWebEmailAddress=209, textWebPassword=225, time=36].
+error: failed linking file resources.
+
+	at com.android.builder.internal.aapt.v2.Aapt2Exception$Companion.create(Aapt2Exception.kt:45)How do I fix this?
