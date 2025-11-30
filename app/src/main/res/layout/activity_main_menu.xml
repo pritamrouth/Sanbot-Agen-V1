@@ -47,6 +47,15 @@
                 android:contentDescription="Home"
                 android:tint="@color/light_text_primary" />
 
+            <ImageButton
+                android:id="@+id/settingsButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_settings"
+                android:contentDescription="Settings"
+                android:tint="@color/light_text_primary" />
+
         </LinearLayout>
 
         <androidx.core.widget.NestedScrollView
@@ -64,55 +73,132 @@
                 android:paddingVertical="@dimen/spacing_xlarge"
                 android:paddingHorizontal="@dimen/spacing_large">
 
+                <TextView
+                    android:id="@+id/menuTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="What would you like to do?"
+                    android:textSize="@dimen/text_h2"
+                    android:textColor="@color/light_text_primary"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="@dimen/spacing_xlarge" />
+
+                <ImageView
+                    android:id="@+id/headerLogo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/logo_tripandevent"
+                    android:layout_marginBottom="@dimen/spacing_xlarge"
+                    android:scaleType="centerInside" />
+
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    app:cardBackgroundColor="#E3F2FD"
-                    app:cardCornerRadius="100dp"
-                    app:cardElevation="0dp"
-                    app:strokeWidth="1dp"
-                    app:strokeColor="#B3E5FC">
+                    android:id="@+id/cardTalkToMe"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    app:cardBackgroundColor="@color/brand_blue"
+                    app:cardCornerRadius="@dimen/button_corner_radius"
+                    app:cardElevation="8dp">
 
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:gravity="center">
 
-                        <View
-                            android:id="@+id/waveformView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_glassy_sphere"
-                            android:visibility="gone" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/ic_waveform_circle"
-                            android:scaleType="centerInside"
-                            android:tint="@color/brand_blue"
-                            android:alpha="0.25" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Talk to Me"
+                            android:textSize="@dimen/text_h3"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:gravity="center" />
 
                     </FrameLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
-                <TextView
-                    android:id="@+id/statusText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hey, what can I do for you today?"
-                    android:textSize="@dimen/text_h2"
-                    android:textColor="@color/light_text_primary"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:layout_marginTop="@dimen/spacing_xlarge" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/conversationRecyclerView"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardBrowsePackages"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_xlarge"
-                    android:nestedScrollingEnabled="false" />
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    app:cardBackgroundColor="@color/brand_orange"
+                    app:cardCornerRadius="@dimen/button_corner_radius"
+                    app:cardElevation="8dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Browse Packages"
+                            android:textSize="@dimen/text_h3"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:gravity="center" />
+
+                    </FrameLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardWatchVideos"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    app:cardBackgroundColor="@color/brand_blue"
+                    app:cardCornerRadius="@dimen/button_corner_radius"
+                    app:cardElevation="8dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Watch Videos"
+                            android:textSize="@dimen/text_h3"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:gravity="center" />
+
+                    </FrameLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardContactUs"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    app:cardBackgroundColor="@color/brand_orange"
+                    app:cardCornerRadius="@dimen/button_corner_radius"
+                    app:cardElevation="8dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Contact Us"
+                            android:textSize="@dimen/text_h3"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:gravity="center" />
+
+                    </FrameLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 
