@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_light_gradient">
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,7 +15,8 @@
             android:layout_height="56dp"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:paddingHorizontal="16dp"
+            android:paddingHorizontal="@dimen/spacing_medium"
+            android:background="@color/brand_blue"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageButton
@@ -25,15 +26,15 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_back"
                 android:contentDescription="Back"
-                android:tint="#1A237E" />
+                android:tint="@color/white" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Contact"
-                android:textSize="24sp"
-                android:textColor="#1A237E"
+                android:text="@string/title_contact_info"
+                android:textSize="@dimen/text_h3"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:gravity="center" />
 
@@ -44,7 +45,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_home"
                 android:contentDescription="Home"
-                android:tint="#1A237E" />
+                android:tint="@color/white" />
 
         </LinearLayout>
 
@@ -58,83 +59,119 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp">
+                android:padding="@dimen/grid_margin">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/selectedPackageChip"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Package"
-                    android:layout_marginBottom="24dp"
-                    app:chipBackgroundColor="#E1F5FF"
-                    app:chipStrokeColor="#B3E5FC"
-                    app:chipStrokeWidth="1dp" />
+                    android:text="@string/contact_form_title"
+                    android:textSize="@dimen/text_h2"
+                    android:textColor="@color/dark_gray"
+                    android:textStyle="bold" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/nameInputLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:boxBackgroundColor="#E1F5FF"
-                    app:boxStrokeColor="#B3E5FC">
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:hint="@string/hint_name"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/nameInput"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Name"
-                        android:inputType="text" />
+                        android:layout_height="56dp"
+                        android:inputType="textPersonName" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/phoneInputLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:boxBackgroundColor="#E1F5FF"
-                    app:boxStrokeColor="#B3E5FC">
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:hint="@string/hint_phone"
+                    app:prefixText="+971"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/phoneInput"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Phone"
+                        android:layout_height="56dp"
                         android:inputType="phone" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/emailInputLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:boxBackgroundColor="#E1F5FF"
-                    app:boxStrokeColor="#B3E5FC">
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:hint="@string/hint_email"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/emailInput"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Email (optional)"
+                        android:layout_height="56dp"
                         android:inputType="textEmailAddress" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    app:boxBackgroundColor="#E1F5FF"
-                    app:boxStrokeColor="#B3E5FC">
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:text="@string/label_interested_packages"
+                    android:textSize="@dimen/text_body"
+                    android:textColor="@color/dark_gray"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/selectedPackageChip"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Selected Package"
+                        android:visibility="gone" />
+
+                </com.google.android.material.chip.ChipGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/notesInputLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:hint="@string/hint_notes"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/notesInput"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:hint="Notes (optional)"
-                        android:gravity="top"
-                        android:inputType="text|textMultiLine" />
+                        android:layout_height="120dp"
+                        android:inputType="textMultiLine"
+                        android:gravity="top" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -142,11 +179,13 @@
                     android:id="@+id/submitButton"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:text="Submit"
-                    android:textSize="16sp"
-                    app:backgroundTint="#0066CC"
-                    app:cornerRadius="12dp"
-                    android:layout_marginTop="24dp" />
+                    android:layout_marginTop="@dimen/spacing_xlarge"
+                    android:layout_marginBottom="@dimen/spacing_xlarge"
+                    android:text="@string/btn_submit"
+                    android:textColor="@color/white"
+                    android:enabled="false"
+                    app:backgroundTint="@color/brand_blue"
+                    app:cornerRadius="12dp" />
 
             </LinearLayout>
 
