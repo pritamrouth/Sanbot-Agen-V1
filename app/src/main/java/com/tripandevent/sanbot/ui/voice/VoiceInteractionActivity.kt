@@ -109,14 +109,12 @@ class VoiceInteractionActivity : BaseFullScreenActivity() {
     private fun updateUIState() {
         if (isListening) {
             binding.statusText.text = getString(R.string.status_listening)
-            binding.microphoneButton.setBackgroundResource(R.drawable.bg_mic_button_active)
+            binding.microphoneButton.setBackgroundResource(R.drawable.bg_light_mic_button_active)
             binding.waveformView.visibility = View.VISIBLE
-            binding.instructionText.text = getString(R.string.instruction_tap_stop)
         } else {
             binding.statusText.text = getString(R.string.status_idle)
-            binding.microphoneButton.setBackgroundResource(R.drawable.bg_mic_button)
+            binding.microphoneButton.setBackgroundResource(R.drawable.bg_light_mic_button)
             binding.waveformView.visibility = View.GONE
-            binding.instructionText.text = getString(R.string.instruction_tap_speak)
         }
     }
 
