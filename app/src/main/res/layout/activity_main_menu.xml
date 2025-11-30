@@ -1,253 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_gray"
-    tools:context=".ui.menu.MainMenuActivity">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_video_placeholder" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_gradient_overlay" />
+    android:background="@drawable/bg_light_gradient">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/grid_margin">
-
-        <ImageView
-            android:id="@+id/headerLogo"
-            android:layout_width="120dp"
-            android:layout_height="48dp"
-            android:src="@drawable/logo_tripandevent"
-            android:contentDescription="TripAndEvent Logo"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/spacing_medium" />
-
-        <ImageButton
-            android:id="@+id/settingsButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_settings"
-            android:contentDescription="Settings"
-            android:tint="@color/white"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="@dimen/spacing_medium" />
-
-        <TextView
-            android:id="@+id/menuTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/main_menu_title"
-            android:textSize="@dimen/text_h2"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/headerLogo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="@dimen/spacing_xlarge" />
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/menuCardsContainer"
-            android:layout_width="0dp"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/spacing_medium"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_back"
+                android:contentDescription="Back"
+                android:tint="@color/light_text_primary" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Voice"
+                android:textSize="@dimen/text_h2"
+                android:textColor="@color/light_text_primary"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <ImageButton
+                android:id="@+id/homeButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_home"
+                android:contentDescription="Home"
+                android:tint="@color/light_text_primary" />
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/contentScroll"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintBottom_toTopOf="@id/microphoneContainer">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingVertical="@dimen/spacing_xlarge"
+                android:paddingHorizontal="@dimen/spacing_large">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    app:cardBackgroundColor="#E3F2FD"
+                    app:cardCornerRadius="100dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#B3E5FC">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <View
+                            android:id="@+id/waveformView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_glassy_sphere"
+                            android:visibility="gone" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_waveform_circle"
+                            android:scaleType="centerInside"
+                            android:tint="@color/brand_blue"
+                            android:alpha="0.25" />
+
+                    </FrameLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/statusText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hey, what can I do for you today?"
+                    android:textSize="@dimen/text_h2"
+                    android:textColor="@color/light_text_primary"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/spacing_xlarge" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/conversationRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xlarge"
+                    android:nestedScrollingEnabled="false" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/microphoneContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/menuTitle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="@dimen/spacing_large">
+            android:padding="@dimen/spacing_large"
+            android:background="@drawable/bg_glassy_bottom_bar"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardTalkToMe"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                app:cardBackgroundColor="@color/brand_blue"
-                app:cardCornerRadius="@dimen/button_corner_radius"
-                app:cardElevation="4dp"
-                app:rippleColor="@color/white_70">
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_light_icon_button"
+                android:src="@drawable/ic_chat"
+                android:tint="@color/brand_blue"
+                android:contentDescription="Chat" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingHorizontal="@dimen/spacing_large">
+            <ImageButton
+                android:id="@+id/microphoneButton"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginHorizontal="@dimen/spacing_xlarge"
+                android:background="@drawable/bg_light_mic_button"
+                android:src="@drawable/ic_microphone"
+                android:tint="@color/white"
+                android:scaleType="center"
+                android:contentDescription="Microphone" />
 
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:text="🎤"
-                        android:textSize="24sp"
-                        android:gravity="center" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/menu_talk_to_me"
-                        android:textSize="@dimen/text_h3"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_marginStart="@dimen/spacing_medium" />
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_chevron_right"
-                        android:tint="@color/white"
-                        android:contentDescription="Go" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardBrowsePackages"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                app:cardBackgroundColor="@color/brand_orange"
-                app:cardCornerRadius="@dimen/button_corner_radius"
-                app:cardElevation="4dp"
-                app:rippleColor="@color/white_70">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingHorizontal="@dimen/spacing_large">
-
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:text="📦"
-                        android:textSize="24sp"
-                        android:gravity="center" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/menu_browse_packages"
-                        android:textSize="@dimen/text_h3"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_marginStart="@dimen/spacing_medium" />
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_chevron_right"
-                        android:tint="@color/white"
-                        android:contentDescription="Go" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardWatchVideos"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                app:cardBackgroundColor="@color/success_green"
-                app:cardCornerRadius="@dimen/button_corner_radius"
-                app:cardElevation="4dp"
-                app:rippleColor="@color/white_70">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingHorizontal="@dimen/spacing_large">
-
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:text="🎬"
-                        android:textSize="24sp"
-                        android:gravity="center" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/menu_watch_videos"
-                        android:textSize="@dimen/text_h3"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_marginStart="@dimen/spacing_medium" />
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_chevron_right"
-                        android:tint="@color/white"
-                        android:contentDescription="Go" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardContactUs"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                app:cardBackgroundColor="@color/warning_yellow"
-                app:cardCornerRadius="@dimen/button_corner_radius"
-                app:cardElevation="4dp"
-                app:rippleColor="@color/white_70">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingHorizontal="@dimen/spacing_large">
-
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:text="📞"
-                        android:textSize="24sp"
-                        android:gravity="center" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/menu_contact_us"
-                        android:textSize="@dimen/text_h3"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_marginStart="@dimen/spacing_medium" />
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_chevron_right"
-                        android:tint="@color/white"
-                        android:contentDescription="Go" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_light_icon_button"
+                android:src="@drawable/ic_close"
+                android:tint="@color/light_text_primary"
+                android:contentDescription="Close" />
 
         </LinearLayout>
 
