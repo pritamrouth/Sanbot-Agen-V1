@@ -3,16 +3,18 @@ package com.tripandevent.sanbot.ui.welcome
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.media3.common.MediaItem
+import androidx.media3.common.Player
+import androidx.media3.exoplayer.ExoPlayer
 import com.tripandevent.sanbot.R
 import com.tripandevent.sanbot.databinding.ActivityWelcomeBinding
 import com.tripandevent.sanbot.ui.menu.MainMenuActivity
@@ -22,6 +24,7 @@ import kotlinx.coroutines.launch
 class WelcomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWelcomeBinding
+    private var exoPlayer: ExoPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +35,64 @@ class WelcomeActivity : AppCompatActivity() {
         setupFullscreenMode()
         setupClickListeners()
         startEntranceAnimations()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        initializeVideoPlayer()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        releaseVideoPlayer()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        releaseVideoPlayer()
+    }
+
+    private fun initializeVideoPlayer() {
+        if (exoPlayer != null) return
+
+        exoPlayer = ExoPlayer.Builder(this).build().apply {
+            binding.videoPlayer.player = this
+
+            repeatMode = Player.REPEAT_MODE_ALL
+            volume = 0f
+
+            val videoUri = try {
+                val rawId = resources.getIdentifier("background_video", "raw", packageName)
+                if (rawId != 0) {
+                    Uri.parse("android.resource://$packageName/$rawId")
+                } else {
+                    null
+                }
+            } catch (e: Exception) {
+                null
+            }
+
+            if (videoUri != null) {
+                val mediaItem = MediaItem.fromUri(videoUri)
+                setMediaItem(mediaItem)
+                prepare()
+                playWhenReady = true
+
+                binding.videoPlayer.visibility = View.VISIBLE
+                binding.backgroundImage.visibility = View.GONE
+            } else {
+                binding.videoPlayer.visibility = View.GONE
+                binding.backgroundImage.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    private fun releaseVideoPlayer() {
+        exoPlayer?.let { player ->
+            player.stop()
+            player.release()
+        }
+        exoPlayer = null
     }
 
     private fun setupFullscreenMode() {
