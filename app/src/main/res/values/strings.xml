@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TripAndEvent</string>
+    
+    <!-- Welcome Screen -->
+    <string name="welcome_title">Welcome to TripAndEvent</string>
+    <string name="welcome_subtitle">Your trusted travel partner</string>
+    <string name="btn_start">Start</string>
+    
+    <!-- Main Menu -->
+    <string name="main_menu_title">How can we help you today?</string>
+    <string name="menu_tours">Tours</string>
+    <string name="menu_events">Events</string>
+    <string name="menu_info">Information</string>
+    <string name="menu_help">Help</string>
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="80dp"
+    android:viewportWidth="200"
+    android:viewportHeight="80">
+    
+    <!-- Globe/Travel Icon -->
+    <path
+        android:fillColor="#FF6B35"
+        android:pathData="M30,40m-25,0a25,25 0,1 1,50 0a25,25 0,1 1,-50 0" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,20 C22,20 15,27 15,40 C15,53 22,60 30,60 C38,60 45,53 45,40 C45,27 38,20 30,20 M30,25 C35,25 40,32 40,40 C40,48 35,55 30,55 C25,55 20,48 20,40 C20,32 25,25 30,25" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M5,40 L55,40 M30,15 L30,65"
+        android:strokeWidth="2"
+        android:strokeColor="#FFFFFF" />
+    
+    <!-- Airplane Icon -->
+    <path
+        android:fillColor="#0066CC"
+        android:pathData="M42,28 L52,38 L48,42 L38,32 L35,45 L30,40 L33,27 L42,28 Z" />
+    
+    <!-- Text: Trip -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M70,30 L70,55 L75,55 L75,30 L85,30 L85,25 L60,25 L60,30 L70,30 Z" />
+    
+    <!-- Text: And -->
+    <path
+        android:fillColor="#FF6B35"
+        android:pathData="M95,35 L95,55 L100,55 L100,45 L110,55 L117,55 L105,43 L115,35 L108,35 L100,43 L100,35 L95,35 Z" />
+    
+    <!-- Text: Event -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M125,25 L125,55 L150,55 L150,50 L130,50 L130,42 L145,42 L145,37 L130,37 L130,30 L150,30 L150,25 L125,25 Z" />
+    
+    <!-- Decorative Line -->
+    <path
+        android:fillColor="#0066CC"
+        android:pathData="M60,60 L195,60"
+        android:strokeWidth="3"
+        android:strokeColor="#0066CC" />
+</vector>

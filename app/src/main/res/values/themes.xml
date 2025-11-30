@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme -->
+    <style name="Theme.SanbotApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/brand_blue</item>
+        <item name="colorPrimaryVariant">@color/brand_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/brand_orange</item>
+        <item name="colorSecondaryVariant">@color/brand_orange</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:navigationBarColor">@color/transparent</item>
+    </style>
+
+    <!-- Fullscreen theme for immersive activities -->
+    <style name="Theme.SanbotApp.Fullscreen" parent="Theme.SanbotApp">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="Widget.SanbotApp.Button.Primary" parent="Widget.Material3.Button">
+        <item name="android:textSize">@dimen/text_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/brand_blue</item>
+        <item name="cornerRadius">@dimen/button_corner_radius</item>
+        <item name="android:paddingTop">@dimen/spacing_medium</item>
+        <item name="android:paddingBottom">@dimen/spacing_medium</item>
+        <item name="android:minWidth">@dimen/button_width</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="TextAppearance.SanbotApp.H1">
+        <item name="android:textSize">@dimen/text_h1</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.SanbotApp.H2">
+        <item name="android:textSize">@dimen/text_h2</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.SanbotApp.H3">
+        <item name="android:textSize">@dimen/text_h3</item>
+        <item name="android:textColor">@color/white_70</item>
+    </style>
+
+    <style name="TextAppearance.SanbotApp.Body">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripAndEvent Sanbot App - Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Device Frame -->
+        <div class="device-frame">
+            <div class="device-screen" id="appScreen">
+                <!-- Welcome Screen -->
+                <div class="screen welcome-screen active" id="welcomeScreen">
+                    <div class="video-background"></div>
+                    <div class="gradient-overlay"></div>
+                    <div class="content">
+                        <div class="logo" id="logo">
+                            <svg viewBox="0 0 200 80" class="logo-svg">
+                                <!-- Globe Icon -->
+                                <circle cx="30" cy="40" r="25" fill="#FF6B35"/>
+                                <ellipse cx="30" cy="40" rx="15" ry="25" fill="none" stroke="#fff" stroke-width="2"/>
+                                <line x1="5" y1="40" x2="55" y2="40" stroke="#fff" stroke-width="2"/>
+                                <line x1="30" y1="15" x2="30" y2="65" stroke="#fff" stroke-width="2"/>
+                                <!-- Airplane -->
+                                <path d="M42,28 L52,38 L48,42 L38,32 L35,45 L30,40 L33,27 L42,28 Z" fill="#0066CC"/>
+                                <!-- Text -->
+                                <text x="70" y="45" fill="#fff" font-family="Poppins" font-weight="700" font-size="18">TripAndEvent</text>
+                                <line x1="70" y1="55" x2="180" y2="55" stroke="#0066CC" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h1 class="welcome-title" id="welcomeTitle">Welcome to TripAndEvent</h1>
+                        <p class="welcome-subtitle" id="welcomeSubtitle">Your trusted travel partner</p>
+                        <button class="start-button" id="startButton" onclick="navigateToMenu()">Start</button>
+                    </div>
+                </div>
+
+                <!-- Main Menu Screen -->
+                <div class="screen menu-screen" id="menuScreen">
+                    <div class="video-background"></div>
+                    <div class="gradient-overlay"></div>
+                    <div class="content">
+                        <div class="header">
+                            <svg viewBox="0 0 200 80" class="header-logo">
+                                <circle cx="30" cy="40" r="25" fill="#FF6B35"/>
+                                <ellipse cx="30" cy="40" rx="15" ry="25" fill="none" stroke="#fff" stroke-width="2"/>
+                                <line x1="5" y1="40" x2="55" y2="40" stroke="#fff" stroke-width="2"/>
+                                <line x1="30" y1="15" x2="30" y2="65" stroke="#fff" stroke-width="2"/>
+                                <text x="70" y="45" fill="#fff" font-family="Poppins" font-weight="700" font-size="18">TripAndEvent</text>
+                                <line x1="70" y1="55" x2="180" y2="55" stroke="#0066CC" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h2 class="menu-title" id="menuTitle">How can we help you today?</h2>
+                        <div class="menu-grid">
+                            <div class="menu-card blue" onclick="showToast('Tours')">
+                                <span>Tours</span>
+                            </div>
+                            <div class="menu-card orange" onclick="showToast('Events')">
+                                <span>Events</span>
+                            </div>
+                            <div class="menu-card green" onclick="showToast('Information')">
+                                <span>Information</span>
+                            </div>
+                            <div class="menu-card yellow" onclick="showToast('Help')">
+                                <span>Help</span>
+                            </div>
+                        </div>
+                        <button class="back-button" onclick="navigateToWelcome()">Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div class="toast" id="toast"></div>
+
+        <!-- Project Info -->
+        <div class="project-info">
+            <h2>TripAndEvent Sanbot App</h2>
+            <p>Native Android Kotlin Application Preview</p>
+            <div class="info-section">
+                <h3>Technology Stack</h3>
+                <ul>
+                    <li>Kotlin 1.9+</li>
+                    <li>Android SDK (API 26+)</li>
+                    <li>Material Design 3</li>
+                    <li>ExoPlayer for Video</li>
+                    <li>Jetpack ConstraintLayout</li>
+                </ul>
+            </div>
+            <div class="info-section">
+                <h3>Design Specs</h3>
+                <ul>
+                    <li>Resolution: 1920x1080 (Portrait)</li>
+                    <li>Font: Poppins</li>
+                    <li>Primary: #0066CC (Blue)</li>
+                    <li>Secondary: #FF6B35 (Orange)</li>
+                </ul>
+            </div>
+            <div class="info-section">
+                <h3>Build Instructions</h3>
+                <pre>./gradlew assembleDebug</pre>
+                <p>Deploy the APK to Sanbot device</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

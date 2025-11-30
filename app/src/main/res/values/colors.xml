@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="brand_blue">#0066CC</color>
+    <color name="brand_orange">#FF6B35</color>
+    
+    <!-- Secondary Colors -->
+    <color name="dark_gray">#2C3E50</color>
+    <color name="light_gray">#ECF0F1</color>
+    <color name="white">#FFFFFF</color>
+    
+    <!-- Accent Colors -->
+    <color name="success_green">#27AE60</color>
+    <color name="warning_yellow">#F39C12</color>
+    <color name="error_red">#E74C3C</color>
+    
+    <!-- UI Colors -->
+    <color name="white_70">#B3FFFFFF</color>
+    <color name="black_50">#80000000</color>
+    <color name="transparent">#00000000</color>
+</resources>
