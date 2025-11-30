@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_light_gradient">
+
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/videoPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:use_controller="false"
+        app:show_buffering="never"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_light_gradient"
+        android:scaleType="centerCrop"
+        android:visibility="visible" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,23 +32,38 @@
             android:layout_height="200dp"
             android:src="@drawable/ic_logo"
             android:scaleType="centerInside"
-            android:alpha="0.8"
+            android:alpha="0"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/brandText"
+            app:layout_constraintBottom_toTopOf="@id/welcomeTitle"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
-            android:id="@+id/brandText"
+            android:id="@+id/welcomeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TripAndEvent"
-            android:textSize="32sp"
+            android:text="Welcome"
+            android:textSize="48sp"
             android:textColor="#1A237E"
             android:textStyle="bold"
+            android:alpha="0"
             android:layout_marginTop="24dp"
             app:layout_constraintTop_toBottomOf="@id/logoImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/welcomeSubtitle" />
+
+        <TextView
+            android:id="@+id/welcomeSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tap to begin"
+            android:textSize="18sp"
+            android:textColor="#1A237E"
+            android:alpha="0"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/welcomeTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/startButton" />
@@ -44,6 +76,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
+            android:alpha="0"
             app:backgroundTint="#0066CC"
             app:cornerRadius="32dp"
             android:layout_marginBottom="80dp"
