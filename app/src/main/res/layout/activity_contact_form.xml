@@ -60,7 +60,18 @@
                 android:orientation="vertical"
                 android:padding="24dp">
 
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/selectedPackageChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Package"
+                    android:layout_marginBottom="24dp"
+                    app:chipBackgroundColor="#E1F5FF"
+                    app:chipStrokeColor="#B3E5FC"
+                    app:chipStrokeWidth="1dp" />
+
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/nameInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
@@ -77,6 +88,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phoneInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
@@ -89,6 +101,40 @@
                         android:layout_height="wrap_content"
                         android:hint="Phone"
                         android:inputType="phone" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emailInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:boxBackgroundColor="#E1F5FF"
+                    app:boxStrokeColor="#B3E5FC">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email (optional)"
+                        android:inputType="emailAddress" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    app:boxBackgroundColor="#E1F5FF"
+                    app:boxStrokeColor="#B3E5FC">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/notesInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:hint="Notes (optional)"
+                        android:gravity="top"
+                        android:inputType="text|textMultiLine" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
