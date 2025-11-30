@@ -1,0 +1,54 @@
+ Task :app:compileDebugKotlin
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:33:17 Unresolved reference: cardTalkToMe
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:38:17 Unresolved reference: cardBrowsePackages
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:43:17 Unresolved reference: cardWatchVideos
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:48:17 Unresolved reference: cardContactUs
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:53:17 Unresolved reference: settingsButton
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:61:21 Unresolved reference: cardTalkToMe
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:62:21 Unresolved reference: cardBrowsePackages
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:63:21 Unresolved reference: cardWatchVideos
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:64:21 Unresolved reference: cardContactUs
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:67:15 Overload resolution ambiguity: 
+public inline fun <T> Iterable<TypeVariable(T)>.forEach(action: (TypeVariable(T)) -> Unit): Unit defined in kotlin.collections
+public inline fun <K, V> Map<out TypeVariable(K), TypeVariable(V)>.forEach(action: (Map.Entry<TypeVariable(K), TypeVariable(V)>) -> Unit): Unit defined in kotlin.collections
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:67:25 Cannot infer a type for this parameter. Please specify it explicitly.
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:68:18 Variable expected
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:69:18 Variable expected
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:72:17 Unresolved reference: menuTitle
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:72:27 Variable expected
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:73:17 Unresolved reference: headerLogo
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:73:28 Variable expected
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:76:21 Unresolved reference: headerLogo
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:84:21 Unresolved reference: menuTitle
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:92:36 Cannot infer a type for this parameter. Please specify it explicitly.
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:92:43 Cannot infer a type for this parameter. Please specify it explicitly.
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/menu/MainMenuActivity.kt:93:28 Overload resolution ambiguity: 
+public final operator fun times(other: Byte): Long defined in kotlin.Long
+public final operator fun times(other: Double): Double defined in kotlin.Long
+public final operator fun times(other: Float): Float defined in kotlin.Long
+public final operator fun times(other: Int): Long defined in kotlin.Long
+public final operator fun times(other: Long): Long defined in kotlin.Long
+public final operator fun times(other: Short): Long defined in kotlin.Long
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/packages/PackageListActivity.kt:47:17 Unresolved reference: packagesRecyclerView
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/packages/PackageListActivity.kt:47:38 Variable expected
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/packages/PackageListActivity.kt:48:17 Unresolved reference: packagesRecyclerView
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/packages/PackageListActivity.kt:48:38 Variable expected
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:59:21 Unresolved reference: videoPlayer
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:59:33 Variable expected
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:81:25 Unresolved reference: videoPlayer
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:81:37 Variable expected
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:82:25 Unresolved reference: backgroundImage
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:82:41 Variable expected
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:84:25 Unresolved reference: videoPlayer
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:84:37 Variable expected
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:85:25 Unresolved reference: backgroundImage
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:85:41 Variable expected
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:108:17 Unresolved reference: rootLayout
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:139:17 Unresolved reference: welcomeTitle
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:140:13 Unresolved reference: translationY
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:141:13 Unresolved reference: animate
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:151:17 Unresolved reference: welcomeSubtitle
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:152:13 Unresolved reference: translationY
+e: file:///C:/Users/USER/AndroidStudioProjects/Sanbot-Agen-V1/app/src/main/java/com/tripandevent/sanbot/ui/welcome/WelcomeActivity.kt:153:13 Unresolved reference: animate
+
+> Task :app:compileDebugKotlin FAILED
